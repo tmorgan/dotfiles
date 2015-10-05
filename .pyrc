@@ -1,0 +1,30 @@
+# ~/.pyrc -- Python start up file. -*-python-*-
+# 
+# In your bash startup file, include the following line:
+#
+#   export PYTHONSTARTUP=$HOME/.pyrc
+#
+
+try:
+    import readline
+except ImportError:
+    print('Module readline not available.')
+else:
+    import rlcompleter
+    readline.parse_and_bind('tab: complete')
+
+import os
+histfile = os.path.join(os.environ['HOME'], '.pyhist')
+try:
+    readline.read_history_file(histfile)
+except IOError:
+    pass
+import atexit
+atexit.register(readline.write_history_file, histfile)
+
+import sys
+#sys.path.insert(0, os.path.join(os.environ['HOME'], 'dev', 'src'))
+
+del sys, os, histfile
+
+
