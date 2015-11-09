@@ -144,3 +144,13 @@ highlight clear SignColumn
 
 
 
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+" Using file extension
+autocmd BufWritePre *.js,*.py,*.h,*.java,*.c :call <SID>StripTrailingWhitespaces()
+
