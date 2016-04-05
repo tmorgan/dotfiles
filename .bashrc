@@ -129,3 +129,10 @@ alias pypath="export PYTHONPATH=$PYTHONPATH:`pwd`"
 
 
 PATH=/home/tony/.cabal/bin:$PATH
+GOPATH=/home/tony/gocode
+export GOPATH=$HOME/gopath
+export PATH=$GOPATH:$GOPATH/bin:$PATH
+
+eval "$(stack --bash-completion-script stack)"
+export PATH=/home/tony/anaconda3/bin:$PATH
+alias lock="dbus-send --type=method_call --dest=org.gnome.ScreenSaver     /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
