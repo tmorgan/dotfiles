@@ -75,7 +75,7 @@ export PYTHONIOENCODING=utf-8
 export PYTHONSTARTUP=$HOME/.pyrc
 
 alias sbash="script -f -a ~/script.out bash"
-alias serve="python -m SimpleHTTPServer 8080"
+alias serve="python2.7 -m SimpleHTTPServer 8080"
 alias clear='use crtl-L'
 
 # share history across terminals
