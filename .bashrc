@@ -135,4 +135,9 @@ export PATH=$GOPATH:$GOPATH/bin:$PATH
 
 eval "$(stack --bash-completion-script stack)"
 export PATH=/home/tony/anaconda3/bin:$PATH
+export ANDROID_HOME=/usr/local/android-sdk-linux
+export PATH=$PATH:/usr/local/android-sdk-linux/bin
+export PATH=$PATH:/usr/local/android-sdk-linux/tools/
+export PATH=$PATH:/usr/local/android-studio/bin
+
 alias lock="dbus-send --type=method_call --dest=org.gnome.ScreenSaver     /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
