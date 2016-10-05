@@ -53,7 +53,7 @@ map <A-8> 8gt
 map <A-9> 9gt 
 
 vmap <F11> :-1/^#/s///<CR>
-vmap <F12> :-1/^/s//#/<CR>
+vmap <F12> :-1/^/s//# /<CR>
 vmap <S-F12> :-1/^/s//\/\//<CR>
 
 " Make shift-insert work like in Xterm
@@ -153,4 +153,11 @@ endfun
 
 " Using file extension
 autocmd BufWritePre *.js,*.py,*.h,*.java,*.c :call <SID>StripTrailingWhitespaces()
+set clipboard=unnamed
 
+autocmd BufWritePost *.py call Flake8()
+
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
