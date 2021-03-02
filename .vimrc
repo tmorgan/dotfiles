@@ -142,8 +142,6 @@ let @d="yypdwi  log.debug(('/(r'a, /:r)"
 execute pathogen#infect()
 highlight clear SignColumn
 
-
-
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -155,7 +153,7 @@ endfun
 autocmd BufWritePre *.js,*.py,*.h,*.java,*.c :call <SID>StripTrailingWhitespaces()
 set clipboard=unnamed
 
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 noremap <Up> <nop>
 noremap <Down> <nop>

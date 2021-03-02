@@ -115,12 +115,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH=/home/tony/anaconda3/bin:$PATH
-export PYTHONPATH=:/home/tony/tony/tensorcap
+#export PATH=/home/tony/anaconda3/bin:$PATH
+#export PYTHONPATH=:/home/tony/tony/tensorcap
 #export PYTHONPATH=:/home/tony/trading/trading
 
-export PATH=/home/tony/bin:$PATH
-export PATH=/home/tony/node-v8.9.4-linux-x64/bin:$PATH
+export PATH=/home/tony/local/bin:$PATH
+#export PATH=/home/tony/.local/bin:$PATH
+#export PATH=/home/tony/node-v8.9.4-linux-x64/bin:$PATH
 export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
 
@@ -137,5 +138,27 @@ export CUDA_PATH=/usr/local/cuda-10.0
 
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(hostname) $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
-
 # . /home/tony/torch/install/bin/torch-activate
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/tony/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tony/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tony/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tony/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# openssl aes-256-cbc -in attack-plan.txt -out message.enc
+# openssl aes-256-cbc -d -in message.enc -out plain-text.txt
