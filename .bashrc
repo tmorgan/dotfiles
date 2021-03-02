@@ -162,3 +162,4 @@ unset __conda_setup
 
 # openssl aes-256-cbc -in attack-plan.txt -out message.enc
 # openssl aes-256-cbc -d -in message.enc -out plain-text.txt
+export PATH=/home/tony/.pyenv/bin:$PATH
