@@ -56,6 +56,9 @@ vmap <F11> :-1/^#/s///<CR>
 vmap <F12> :-1/^/s//# /<CR>
 vmap <S-F12> :-1/^/s//\/\//<CR>
 
+set nohlsearch
+nnoremap <F3> :set hlsearch!<CR>
+
 " Make shift-insert work like in Xterm
 map  <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
@@ -139,7 +142,6 @@ ca w!! w !sudo tee >/dev/null "%"
 
 let @d="yypdwi  log.debug(('/(r'a, /:r)"
 
-execute pathogen#infect()
 highlight clear SignColumn
 
 function! <SID>StripTrailingWhitespaces()
@@ -159,3 +161,16 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+
+autocmd BufWritePost *.py silent! !black <afile>
+autocmd BufWritePost *.py edit
+autocmd BufWritePost *.py redraw!
+
+autocmd BufWritePost *.js silent! !prettier -w --tab-width 4 <afile>
+autocmd BufWritePost *.js edit
+autocmd BufWritePost *.js redraw!
+
+autocmd BufWritePost *.vue silent! !prettier -w --parser vue --tab-width 4 <afile>
+autocmd BufWritePost *.vue edit
+autocmd BufWritePost *.vue redraw!
+
